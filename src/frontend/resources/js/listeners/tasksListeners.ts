@@ -1,4 +1,5 @@
 import tasksListRender from "../render/tasksListRender";
+import { logoutApi } from "../api/logoutApi";
 import { clearUserId } from "../utils/getUserIdFromAuth";
 
 export default async function tasksListeners(idUser: number): Promise<void> {
@@ -25,9 +26,17 @@ export default async function tasksListeners(idUser: number): Promise<void> {
     }
   });
 
-  logoutBtn?.addEventListener("click", () => {
+  logoutBtn?.addEventListener("click", async () => {
+    try {
+      // O cookie é HttpOnly: só o backend consegue apagá-lo
+      await logoutApi();
+    } catch (error) {
+      alert("Erro ao sair");
+      console.error(error);
+      return;
+    }
+
     clearUserId();
-    // O cookie é deletado automaticamente na próxima validação
     window.location.href = "/login.html";
   });
 }

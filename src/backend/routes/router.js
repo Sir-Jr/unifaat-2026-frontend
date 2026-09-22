@@ -16,6 +16,7 @@ import taskContextRouter from './apis/taskContextRouter.js';
 import fileUpload from 'express-fileupload';
 import swaggerUi from 'swagger-ui-express';
 import LoginController from '../app/Http/Controllers/LoginController.js';
+import LogoutController from '../app/Http/Controllers/LogoutController.js';
 import AuthMiddleware from '../app/Http/Middlewares/AuthMiddleware.js';
 import AuthTokenMiddleware from '../app/Http/Middlewares/AuthTokenMiddleware.js';
 import CorsMiddleware from '../app/Http/Middlewares/CorsMiddleware.js';
@@ -87,6 +88,9 @@ router.use('/docs', swaggerUi.serve, swaggerUi.setup(SwaggerDoc()));
 
 /** Login */
 router.post('/api/login', LoginController);
+
+/** Logout (apaga o cookie HttpOnly de autenticação) */
+router.post('/api/logout', LogoutController);
 
 /** Router para usuários */
 router.use("/users", userRouter);
