@@ -46,6 +46,19 @@ export interface PaginationParams {
   limit?: number;
 }
 
+// ── Busca de usuários (POST /users/search) ──────────────────
+
+/** Filtros aceitos pela busca. Campos de texto funcionam como "contém". */
+export interface UserSearchFilters {
+  name?: string;
+  email?: string;
+  job_title?: string;
+  bio?: string;
+  city?: string;
+  state?: string;
+  is_active?: boolean;
+}
+
 // ── Tipos específicos de autenticação ───────────────────────
 
 export interface LoginResponse {
