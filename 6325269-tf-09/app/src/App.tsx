@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <main className="app">
-      {/* Decoração: Buzz à esquerda e E.T. à direita, flutuando */}
+      {/* Decoração: minha foto à esquerda e E.T. à direita, flutuando */}
       <div className="character character--left" aria-hidden="true" />
       <div className="character character--right" aria-hidden="true" />
 

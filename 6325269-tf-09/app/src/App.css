@@ -29,10 +29,11 @@
   transform: translateX(-50%);
   /* Centro da faixa livre à esquerda */
   left: calc((100vw - 960px) / 4);
-  /* Buzz é largo e baixo: ganha mais largura para ter presença igual à do E.T. */
-  width: clamp(140px, calc((100vw - 960px) / 2 - 24px), 420px);
-  aspect-ratio: 556 / 480;
-  background-image: url("/personagens/buzz.png");
+  /* Foto é larga e baixa: ganha mais largura para ter presença igual à do E.T. */
+  /* As laterais da foto são transparentes, então ela pode passar um pouco da faixa livre */
+  width: clamp(180px, calc((100vw - 960px) / 2 + 40px), 520px);
+  aspect-ratio: 570 / 437;
+  background-image: url("/personagens/eu.png");
 }
 
 .character--right {
